@@ -1,0 +1,150 @@
+/* 背景 */
+.bg {
+    background: url('../images/bg4.jpg') no-repeat;
+    width: 100%;
+    height: 686.75px;
+    background-size: cover;
+    background-position: center center;
+}
+.bg .container {
+    width: 67%;
+    margin: 0 auto 80px;
+    padding-top: 40px;
+    text-align: center;
+}
+.bg .container .bg-logo {
+    padding-bottom: 30px;
+    border-bottom: 1px solid #fff;
+}
+.bg .container img {
+    width: 10%;
+    animation-name: logoMove;
+    animation-duration: 1.5s;
+    animation-delay: 0.3s;
+}
+.bg .container .nav ul {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    animation-name: navMove;
+    animation-duration: 0.8s;
+    animation-delay: 0.5s;
+}
+@keyframes navMove {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+@keyframes logoMove {
+    0% {
+        transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+        animation-timing-function: ease-in;
+        opacity: 0;
+    }
+    40% {
+        transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+        animation-timing-function: ease-in;
+    }
+    60% {
+        transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+        opacity: 1;
+    }
+    80% {
+        transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+    }
+    100% {
+        transform: perspective(400px);
+        opacity: 1;
+    }
+}
+.bg .container .nav ul li {
+    height: 100px;
+    width: 20%;
+    line-height: 100px;
+}
+.bg .container .nav ul li a {
+    display: block;
+    width: 100%;
+    color: #fff;
+    text-decoration: none;
+    font-size: 12px;
+}
+.bg .container .bg-title {
+    margin-top: 72.5px;
+    color: #fff;
+    font-family: "微软雅黑", 'Microsoft YaHei';
+    user-select: none;
+    animation-name: logoMove;
+    animation-duration: 1.5s;
+    animation-delay: 0.3s;
+}
+.bg .container .bg-title h1 {
+    font-size: 46px;
+    font-weight: 900;
+}
+.bg .container .bg-title p {
+    font-size: 14px;
+    padding: 30px;
+}
+
+/* 新品介绍 */
+.newcoffee {
+    width: 100%;
+}
+.newcoffee .container {
+    width: 1200px;
+    margin: 0 auto;
+}
+.newcoffee .container .intro {
+    margin: 60px 0 40px;
+    font-weight: bold;
+    text-indent: 4px;
+    font-family: "微软雅黑", 'Microsoft YaHei';
+}
+.newcoffee .container .pics {
+    position: relative;
+    height: 300px;
+}
+.newcoffee .container .pics img {
+    position: absolute;
+}
+.newcoffee .container .pics img:nth-child(1){
+    left: 0;
+    top: 0;
+    width: 600px;
+}
+.newcoffee .container .pics img:nth-child(2){
+    right: 300px;
+    top: 0;
+    width: 300px;
+    height: 150px;
+}
+.newcoffee .container .pics img:nth-child(3){
+    right: 0;
+    top: 0;
+    width: 300px;
+    height: 150px;
+}
+.newcoffee .container .pics img:nth-child(4){
+    right: 0;
+    bottom: 0;
+    width: 600px;
+    height: 150px;
+}
+@media screen and (max-width: 1200px){
+    .bg .container {
+        width: 100%;
+    }
+    .newcoffee .container {
+        width: 100%;
+    }
+    .newcoffee .container .pics img:nth-child(1) {
+        max-width: 1200px;
+    }
+}
+
