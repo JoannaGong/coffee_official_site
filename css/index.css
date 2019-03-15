@@ -1,3 +1,8 @@
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
 /* 背景 */
 .bg {
     background: url('../images/bg4.jpg') no-repeat;
@@ -18,19 +23,26 @@
 }
 .bg .container img {
     width: 10%;
+}
+.moveLeft {
     animation-name: logoMove;
-    animation-duration: 1.5s;
+    animation-duration: 1s;
+    animation-delay: 0.3s;
+}
+.moveUp {
+    animation-name: imgMove;
+    animation-duration: 1s;
     animation-delay: 0.3s;
 }
 .bg .container .nav ul {
     display: flex;
     justify-content: space-around;
     margin-top: 20px;
-    animation-name: navMove;
-    animation-duration: 0.8s;
-    animation-delay: 0.5s;
+    transform: translateX(-100%);
+    /* animation-name: navMove;
+    animation-duration: 1s; */
 }
-@keyframes navMove {
+/* @keyframes navMove {
     0% {
         transform: translateX(-100%);
         opacity: 0;
@@ -39,7 +51,7 @@
         transform: translateX(0);
         opacity: 1;
     }
-}
+} */
 @keyframes logoMove {
     0% {
         transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
@@ -56,6 +68,28 @@
     }
     80% {
         transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+    }
+    100% {
+        transform: perspective(400px);
+        opacity: 1;
+    }
+}
+@keyframes imgMove {
+    0% {
+        transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+        animation-timing-function: ease-in;
+        opacity: 0;
+    }
+    40% {
+        transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+        animation-timing-function: ease-in;
+    }
+    60% {
+        transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+        opacity: 1;
+    }
+    80% {
+        transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
     }
     100% {
         transform: perspective(400px);
@@ -79,9 +113,6 @@
     color: #fff;
     font-family: "微软雅黑", 'Microsoft YaHei';
     user-select: none;
-    animation-name: logoMove;
-    animation-duration: 1.5s;
-    animation-delay: 0.3s;
 }
 .bg .container .bg-title h1 {
     font-size: 46px;
@@ -101,50 +132,353 @@
     margin: 0 auto;
 }
 .newcoffee .container .intro {
+    background: url('../images/icon01.png') no-repeat;
+    background-size: 27px 28px; 
+    height: 28px;
+    line-height: 28px;
     margin: 60px 0 40px;
     font-weight: bold;
-    text-indent: 4px;
+    text-indent: 40px;
     font-family: "微软雅黑", 'Microsoft YaHei';
+    transform: translateX(-100%);
 }
 .newcoffee .container .pics {
+    display: flex;
+    margin-bottom: 40px;
+}
+.newcoffee .container .pics .right {
+    flex-direction: column;
+}
+.newcoffee .container .pics .right .up {
+    display: flex;
+    justify-content: space-evenly;
+}
+.newcoffee .container .coffee {
+    transform: translateX(-100%);
+}
+.newcoffee .container .coffee .coffee-name ul {
+    display: flex;
+    justify-content: space-around;
+    color: rgb(153, 153, 153);
+    font-size: 12px;
+    height: 40px;
+    line-height: 40px;
+    user-select: none;
+}
+.newcoffee .container .coffee .coffee-name ul li {
     position: relative;
-    height: 300px;
+    width: 33.3%;
+    text-align: center;
 }
-.newcoffee .container .pics img {
+.newcoffee .container .coffee .coffee-name ul li .active {
     position: absolute;
-}
-.newcoffee .container .pics img:nth-child(1){
-    left: 0;
-    top: 0;
-    width: 600px;
-}
-.newcoffee .container .pics img:nth-child(2){
-    right: 300px;
-    top: 0;
-    width: 300px;
-    height: 150px;
-}
-.newcoffee .container .pics img:nth-child(3){
-    right: 0;
-    top: 0;
-    width: 300px;
-    height: 150px;
-}
-.newcoffee .container .pics img:nth-child(4){
-    right: 0;
     bottom: 0;
-    width: 600px;
-    height: 150px;
+    left: 50%;
+    width: 50%;
+    transform: translateX(-50%);
+    border-bottom: 3px solid #000;
 }
+.newcoffee .container .coffee .coffee-detail {
+    position: relative;
+}
+
+.newcoffee .container .coffee .item {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: calc(100% - 24px);
+    display: flex;
+    padding: 72px 13px;
+    height: 220px;
+    border: 1px solid #e6e6e6;
+    user-select: none;
+}
+.newcoffee .container .coffee .item a {
+    display: block;
+    height: 34px;
+    margin-top: 19px;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #000;
+}
+.newcoffee .container .coffee .item p {
+    font-size: 12px;
+    color: #565656;
+    margin: 19px 0;
+    height: 20px;
+}
+.newcoffee .container .coffee .item>div {
+    display: flex;
+    width: 50%;
+}
+.newcoffee .container .coffee .item div>div {
+    width: 43.5%;
+    margin-right: 25.6px;
+}
+.newcoffee .container .coffee .item img {
+    margin-top: 12px;
+    height: 196px;
+    width: 100%;
+    height: 196px;
+}
+.newcoffee .container .coffee .item div:nth-child(1):hover img,
+.newcoffee .container .coffee .item div:nth-child(2):hover img {
+    transform: scale(1.1);
+}
+/* 新闻中心 */
+.news {
+    width: 100%;
+    margin-top: 440px;
+    background: url(../images/bg7.jpg) no-repeat;
+    background-size: cover; 
+    background-position: center;
+    height: 880px;
+}
+.news .container {
+    padding: 0 16.8%;
+}
+.news .container .title {
+    padding: 100px 0 60px;
+    font-family: 微软雅黑, 'Microsoft YaHei';
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+}
+.news .container .news-detail ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.news .container .news-detail ul li {
+    width: 48.5%;
+    padding: 0 1% 2% 0.5%;
+}
+.news .container .news-detail ul li img {
+    height: 205px;
+    width: 100%;
+}
+.news .container .news-detail ul li h3 {
+    font-weight: bold;
+    margin: 10px 0;
+}
+.news .container .news-detail ul li p {
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    color: #666;
+    font-size: 14px;
+    height: 50px;
+    line-height: 25px;
+    margin: 5px 0 5px;
+}
+/* 关于我们 */
+.aboutUs-title .container {
+    width: 100%;
+    text-align: center;
+    margin: 80px 0;
+}
+.aboutUs-title .container h3 {
+    font-weight: bold;
+    color: #363d70;
+    margin-bottom: 58px;
+    transform: translateX(-100%);
+}
+.aboutUs-title .container p {
+    margin: 13px 0;
+    font-size: 12px;
+    transform: translateX(-100%);
+}
+/* 顶级咖啡 */
+.topCoffee {
+    width: 100%;
+}
+.topCoffee .container {
+    max-width: 1200px;
+    margin: 0 auto 161px;
+}
+.topCoffee .container ul {
+    display: flex;
+}
+.topCoffee .container ul li {
+    width: 50%;
+}
+.topCoffee .container ul li:nth-child(2) {
+    display: flex;
+    justify-content: center;
+}
+.topCoffee .container ul li img {
+    display: block;
+    width: 432px;
+    margin: 0 auto;
+}
+.topCoffee .container ul li h3 {
+    padding: 80px 0 18px;
+    font-size: 36px;
+}
+.topCoffee .container ul li p {
+    font-size: 12px;
+    margin: 10px 0;
+}
+.topCoffee .container ul li button {
+    width: 146px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    background-color: #363d70;
+    border: none;
+    color: #fff;
+    margin-top: 40px;
+}
+
+.footer .container {
+    width: 100%;
+    background-color: #363d70;
+    height: 101px;
+}
+.footer .container ul {
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
+    height: 16px;
+}
+.footer .container ul a {
+    font-size: 14px;
+    color: #fff;
+    text-decoration: none;
+    line-height: 16px;
+}
+.footer .container ul span {
+    color: #ccc;
+    padding: 0 8px;
+}
+
 @media screen and (max-width: 1200px){
     .bg .container {
         width: 100%;
     }
     .newcoffee .container {
         width: 100%;
+        height: 200%;
     }
-    .newcoffee .container .pics img:nth-child(1) {
-        max-width: 1200px;
+    .newcoffee .container .pics {
+        flex-direction: column;
+    }
+    .newcoffee .container .pics .left img {
+        width: 100%;
+        height: 100%;
+    }
+    .newcoffee .container .pics img {
+        display: block;
+        width: 100%;
+        height: 200%;
+    }
+    /* 关于我们 */
+    .aboutUs-title .container {
+        margin-top: 20px;
+    }
+    /* 顶级咖啡 */
+    .topCoffee .container ul {
+        flex-direction: column;
+    }
+    .topCoffee .container ul li {
+        width: 100%;
+    }
+    .topCoffee .container ul li img {
+        width: 70%;
     }
 }
-
+@media screen and (max-width: 768px){
+    .bg {
+        height: 450px;
+        background-size: 100%;
+        margin-top: -15px;
+    }
+    .bg .container .nav ul {
+        margin-top: 0;
+    }
+    .bg .container .bg-title {
+        margin-top: 50px;
+    }
+    .bg .container .bg-title p {
+        padding-top: 10px;
+    }
+    .newcoffee .container {
+        width: 100%;
+        height: 200%;
+    }
+    .newcoffee .container .intro {
+        margin: 20px 15px;
+    }
+    .newcoffee .container .pics {
+        margin: 0 15px;
+    }
+    .newcoffee .container .coffee .item {
+        flex-direction: column;
+        padding: 38.6px 11px;
+        height: 283px;
+    }
+    .newcoffee .container .coffee .coffee-name ul {
+        height: 60px;
+        line-height: 60px;
+        margin-top: 40px;
+    }
+    .newcoffee .container .coffee .item img {
+        width: 158px;
+        height: 112px;
+        margin: 0 25%;
+    }
+    .newcoffee .container .coffee .item .detail a {
+        font-size: 14px;
+        margin: 0;
+        height: 22px;
+    }
+    .newcoffee .container .coffee .item .detail p {
+        margin: 2px 0;
+    }
+    .newcoffee .container .coffee .item>div {
+        justify-content: center;
+        margin-bottom: 20px;
+        width: 100%;
+    }
+    .newcoffee .container .coffee .item .detail {
+        margin-left: 40px;
+    }
+    .newcoffee .container .coffee .coffee-detail {
+        margin: 0 15px;
+    }
+    /* 新闻中心 */
+    .news {
+        margin-top: 380px;
+        height: 100%;
+        padding-bottom: 10px;
+    }
+    .news .container .title {
+        padding: 25px 0 8px;
+    }
+    .news .container {
+        padding: 0 3%;
+    }
+    .news .container .news-detail ul li {
+        width: 100%;
+        height: 25%;
+    }
+    .news .container .news-detail ul li img {
+        height: 82%;
+    }
+}
+@media screen and (max-width: 766px){
+    .bg {
+        height: 364px;
+    }
+    .bg .container .nav {
+        display: none;
+    }
+    .bg .container .bg-title {
+        margin-top: 84px;
+    }
+    
+}
